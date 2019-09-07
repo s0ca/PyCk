@@ -131,7 +131,7 @@ def main():
         #*************************************#
         print("")
         print("Scan for Wordpress...")
-        sleep(2)
+        #sleep(2)
         wpLcheck = requests.get(site + "/wp-admin.php")
         if wpLcheck.status_code == 200 and "user_login" in wpLcheck.text and "404" not in wpLcheck.text:
             print("Wordpress detected: admin login => " + site + "/wp-admin.php")
@@ -149,7 +149,7 @@ def main():
         #*************************************#
         print("")
         print("Scan for Joomla...")
-        sleep(2)
+        #sleep(2)
         jmAcheck = requests.get(site + "/administrator")
         if jmAcheck.status_code == 200 and "mod-login-username" in jmAcheck.text and "404" not in jmAcheck.text:
             print("Joomla detected: administrator page => " + site + "/administrator")
@@ -167,7 +167,7 @@ def main():
         #*************************************#
         print("")
         print("Scan for Drupal...")
-        sleep(2)
+        #sleep(2)
         drRcheck = requests.get(site + "/readme.txt")
         if drRcheck.status_code == 200 and 'drupal' in drRcheck.text and '404' not in drRcheck.text:
             print("Drupal detected: Drupal Readme.txt => " + site + '/readme.txt')
@@ -185,7 +185,7 @@ def main():
         #*************************************#
         print("")
         print("Scan for Magento...")
-        sleep(2)
+        #sleep(2)
         mgRcheck = requests.get(site + '/RELEASE_NOTES.txt')
         if mgRcheck.status_code == 200 and 'magento' in mgRcheck.text:
             print("Magento detected: Magento Release_Notes.txt: " + site + '/RELEASE_NOTES.txt')

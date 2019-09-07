@@ -37,7 +37,7 @@ def main():
         ip = input('\033[36mEnter target ip: \033[0m')
         resault = ipwhois.IPWhois(ip).lookup_whois()
         pprint(resault)
-        main()    
+        main()
 
     elif num == '2':
         addr = input('\033[36mEnter target address: \033[0m')
@@ -45,7 +45,7 @@ def main():
             response = urlopen(addr).getcode()
             if response == 200:
                 print('Ok,site is up...')
-			
+
         except URLError as err:
             print('Couldn\'t find a server!!!')
             print('Reason: ',err.reason)
@@ -57,7 +57,7 @@ def main():
 
     elif num == '3':
         site_ip = input('\033[36mEnter site ip: \033[0m')
-        
+
         try:
             for port in range(20,500): # you can change this range
                 sock = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
@@ -67,8 +67,8 @@ def main():
                     sock.close()
 
         except KeyboardInterrupt:
-            print('Cansel Scaning...')
-            exit()  
+            print('Cancel Scanning...')
+            exit()
         main()
 
     elif num == '4':

@@ -37,7 +37,7 @@ def main():
         ip = input('\033[36mEnter target ip: \033[0m')
         resault = ipwhois.IPWhois(ip).lookup_whois()
         pprint(resault)
-        main()    
+        main()
 
     elif num == '2':
         addr = input('\033[36mEnter target address: \033[0m')
@@ -45,7 +45,7 @@ def main():
             response = urlopen(addr).getcode()
             if response == 200:
                 print('Ok,site is up...')
-			
+
         except URLError as err:
             print('Couldn\'t find a server!!!')
             print('Reason: ',err.reason)
@@ -57,7 +57,7 @@ def main():
 
     elif num == '3':
         site_ip = input('\033[36mEnter site ip: \033[0m')
-        
+
         try:
             for port in range(20,500): # you can change this range
                 sock = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
@@ -67,8 +67,8 @@ def main():
                     sock.close()
 
         except KeyboardInterrupt:
-            print('Cansel Scaning...')
-            exit()  
+            print('Cancel Scanning...')
+            exit()
         main()
 
     elif num == '4':
@@ -131,7 +131,7 @@ def main():
         #*************************************#
         print("")
         print("Scan for Wordpress...")
-        sleep(2)
+        #sleep(2)
         wpLcheck = requests.get(site + "/wp-admin.php")
         if wpLcheck.status_code == 200 and "user_login" in wpLcheck.text and "404" not in wpLcheck.text:
             print("Wordpress detected: admin login => " + site + "/wp-admin.php")
@@ -149,7 +149,7 @@ def main():
         #*************************************#
         print("")
         print("Scan for Joomla...")
-        sleep(2)
+        #sleep(2)
         jmAcheck = requests.get(site + "/administrator")
         if jmAcheck.status_code == 200 and "mod-login-username" in jmAcheck.text and "404" not in jmAcheck.text:
             print("Joomla detected: administrator page => " + site + "/administrator")
@@ -167,7 +167,7 @@ def main():
         #*************************************#
         print("")
         print("Scan for Drupal...")
-        sleep(2)
+        #sleep(2)
         drRcheck = requests.get(site + "/readme.txt")
         if drRcheck.status_code == 200 and 'drupal' in drRcheck.text and '404' not in drRcheck.text:
             print("Drupal detected: Drupal Readme.txt => " + site + '/readme.txt')
@@ -185,7 +185,7 @@ def main():
         #*************************************#
         print("")
         print("Scan for Magento...")
-        sleep(2)
+        #sleep(2)
         mgRcheck = requests.get(site + '/RELEASE_NOTES.txt')
         if mgRcheck.status_code == 200 and 'magento' in mgRcheck.text:
             print("Magento detected: Magento Release_Notes.txt: " + site + '/RELEASE_NOTES.txt')
